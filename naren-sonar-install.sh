@@ -18,14 +18,12 @@ chown sonarqube. /var/sonarqube -R
 
 vi /opt/sonarqube/conf/sonar.properties
 # ==============================
-# sonar.jdbc.username=sonar
-# sonar.jdbc.password=sonar@123
+# sonar.jdbc.username=sonarqube
+# sonar.jdbc.password=sonarqube@123
+#sonar.jdbc.url=jdbc:postgresql://localhost/sonarqubedb
 
 # sonar.web.javaOpts=-Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
-# sonar.web.host=0.0.0.0
 # sonar.web.port=9000
-
-
 
 # sonar.ce.javaOpts=-Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
 
