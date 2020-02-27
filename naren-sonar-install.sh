@@ -8,8 +8,9 @@ wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.1.0.312
 unzip sonarqube-8.1.0.31237.zip
 
 mv sonarqube-8.1.0.31237 /opt/sonarqube
+groupadd sonarqube
+useradd -g sonarqube sonarqube
 
-useradd -Urs /bin/false sonarqube
 chown sonarqube. /opt/sonarqube -R
 
 mkdir -p /var/sonarqube/{temp,data}
