@@ -1,6 +1,6 @@
 # install openJDK11
-
-sudo yum install java-11-openjdk-devel -y
+sudo su 
+yum install java-11-openjdk-devel -y
 
 cd /opt
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.1.0.31237.zip
@@ -21,6 +21,10 @@ vi /opt/sonarqube/conf/sonar.properties
 # sonar.jdbc.password=sonar@123
 
 # sonar.web.javaOpts=-Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
+# sonar.web.host=0.0.0.0
+# sonar.web.port=9000
+
+
 
 # sonar.ce.javaOpts=-Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError
 
@@ -51,16 +55,18 @@ vi /etc/systemd/system/sonar.service
 # LimitNOFILE=65536
 # LimitNPROC=4096
 #
-# User=sonar
-# Group=sonar
+# User=sonarqube
+# Group=sonarqube
 # Restart=always
 # 
 # [Install]
 # WantedBy=multi-user.target
 # ==========================================
 
-sudo systemctl daemon-reload
-sudo systemctl enable sonar
-sudo service sonar start
+systemctl daemon-reload
+systemctl enable sonar
+systemctl restart sonar.service
+systemctl status sonar.service
+
 # check the http:localhost:9000/
 
