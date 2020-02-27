@@ -30,7 +30,7 @@ passwd postgres
 su postgres
  psql
  create database sonarqubedb;
- create user sonarqube with encrypted password 'sonarqube';
+ create user sonarqube with encrypted password 'sonarqube@123';
  grant all privileges on database sonarqubedb to sonarqube;
  \q
 exit
